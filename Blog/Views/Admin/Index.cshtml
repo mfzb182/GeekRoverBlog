@@ -1,0 +1,8 @@
+﻿@{ 
+    ViewBag.Title = "Admin panel";
+}
+
+@Html.ActionLink("Update your password", "Password")
+@Html.ActionLink("Update your profile picture", "Pic")
+
+<img class="Profile" src="~/Documents/ProfilePic/@Session["Username"].ToString()" alt="@Session["Username"]"/>

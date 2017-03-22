@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Blog.Models.File>
+@{
+    ViewBag.Title = "Files";
+}
+@Html.ActionLink("Upload", "Upload", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@foreach (var item in Model)
+{
+    <div>
+        <h3>@Html.DisplayFor(modelItem => item.Id)</h3>
+        <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+        @Html.ActionLink("Download", "Download", new { controller = "Documents", id = item.Id })
+        @Html.ActionLink("Edit", "Update", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+        @Html.ActionLink("Delete", "Drop", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+    </div>
+}

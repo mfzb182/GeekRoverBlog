@@ -1,0 +1,20 @@
+﻿@model Blog.Models.Post
+@{
+    ViewBag.Title = "Create";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post" enctype="multipart/form-data">
+    <label for="Title">Name</label>
+    <input type="text" name="Title" />
+
+    <label for="Abstract">Abstract</label>
+    <input type="text" name="Abstract" />
+
+    <label for="body">Body</label>
+    <textarea name="Body"></textarea>
+
+    <label for="Group">Group</label>
+    @Helpers.Groups("Group")
+
+    <input type="submit" value="Send" />
+</form>

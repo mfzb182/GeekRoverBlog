@@ -1,0 +1,14 @@
+﻿@model Blog.Models.Post
+@{ 
+    ViewBag.Title = "Delete";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post">
+    <label>Title</label>
+    <p>@Model.Title</p>
+
+    <label>Abstract</label>
+    <p>@Model.Abstract</p>
+
+    <input type="submit" value="Delete" />
+</form>

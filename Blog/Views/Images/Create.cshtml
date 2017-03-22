@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post" enctype="multipart/form-data">
+    <label for="Url">Url</label>
+    <input type="text" name="Url" />
+
+    <label for="Alt">Alt</label>
+    <input type="text" name="Alt" />
+
+    <label for="Description">Description</label>
+    <textarea name="Description"></textarea>
+
+    <input type="submit" value="Create"/>
+</form>

@@ -1,0 +1,51 @@
+﻿label{
+    display:block;
+    margin:.5em;
+}
+table a, button, input, textarea, select {
+    width: auto;
+    padding: .2em;
+    direction: rtl;
+    font-size: 1.1em;
+    border:none;
+    border-radius:.1em;
+    max-width:95%;
+}
+input, textarea, select, button{
+        display:block;
+    margin-top:.5em;
+    margin-bottom:.5em;
+}
+
+table a :hover, table a:focus, table a:active,
+button:hover, button:focus, button:active,
+input:hover, input:focus, input:active,
+select:hover, select:focus, select:active{
+
+}
+
+select, option {
+    min-width: 20em;
+}
+
+img {
+}
+
+
+a:hover, a:active, a:focus {
+}
+
+input[type="submit"] {
+    padding: .75em;
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+    height: 2em;
+}
+
+input[type="number"] {
+    margin: 0;
+}
+span{
+    max-width:100%;
+}

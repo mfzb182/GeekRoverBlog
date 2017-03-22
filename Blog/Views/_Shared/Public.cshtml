@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+<div class="Menu2">
+    @Helpers.Menu()
+</div>
+@RenderBody()
+@section footer{
+    <a href="~/">@Blog.App_Code.About.ApplicationTitle</a>
+}

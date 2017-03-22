@@ -1,0 +1,17 @@
+﻿@{    
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+@section header{
+<div class="Menu2">
+    @Html.ActionLink("Groups", "Index", "Groups")
+    @Html.ActionLink("Posts", "Index", "Posts")
+    @Html.ActionLink("Files", "Index", "Files")
+    @Html.ActionLink("Images", "Index", "Images")
+</div>
+}
+@RenderBody()
+@section footer{
+    @Blog.App_Code.About.ApplicationTitle
+    1394 © 2015
+    <img class="Sign" style="display:block; width:2em; margin:1em auto 0 auto;" alt="Desgin and Developed by MohammadReza Tayyebi" src="~/Sign.png">
+}

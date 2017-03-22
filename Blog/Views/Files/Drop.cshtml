@@ -1,0 +1,9 @@
+﻿@model Blog.Models.File
+@{
+    ViewBag.Title = "Delete";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post">
+    <input value="@Model.Name" readonly />
+    <input type="submit" value="Delete this file" />
+</form>

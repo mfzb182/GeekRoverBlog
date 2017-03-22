@@ -1,0 +1,16 @@
+﻿@model Blog.Models.Image
+@{ 
+    ViewBag.Title = "Edit";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post">
+    <label for="Url">Url</label>
+    <input type="text" name="Url" value="@Model.Url" />
+
+    <label for="Alt">Alt</label>
+    <input type="text" name="Alt" value="@Model.Alt" />
+
+    <label for="Description">Description</label>
+    <textarea name="Description"> @Model.Description</textarea>
+    <input type="submit" value="Rename"/>
+</form>

@@ -1,0 +1,9 @@
+﻿@model Blog.Models.Group
+@{ 
+    ViewBag.Title = "Edit";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post">
+    <input type="text" name="Name" value="@Model.Name"/>
+    <input type="submit" value="Rename"/>
+</form>

@@ -1,0 +1,15 @@
+﻿@model Blog.Models.Post
+@{
+    ViewBag.Title = "Preview: " + Model.Title;
+}
+@Html.ActionLink("Back", "Index")
+<label>Title</label>
+<p>@Model.Title</p>
+
+<label>Abstract</label>
+<p>@Model.Abstract</p>
+
+<label>Body</label>
+<div>
+    @Html.Raw(Model.Body)
+</div>

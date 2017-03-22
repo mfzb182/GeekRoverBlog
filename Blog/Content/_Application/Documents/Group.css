@@ -1,0 +1,46 @@
+﻿.posts {
+    display: block;
+    margin: 0 auto 0 auto;
+    
+    min-width:15em;
+    background-image:url('../dark_embroidery.png');
+    border-left: 3px groove rgba(0,0,0,0.8);
+	border-right: 3px groove rgba(0,0,0,0.8);
+}
+
+    .posts .post {
+        background-color: rgba(255, 255, 255, 0.30);
+        border-radius: .3em;
+    }
+
+    .posts h2 {
+        text-shadow: 0 0 .1em #000000;
+    }
+
+    .posts span, .posts h2, .posts h3 {
+        display: block;
+        width:70%;
+        margin: 1em auto 1em auto;
+        text-align: center;
+    }
+
+    .posts .abstract {
+        padding:1em;
+        margin:2em;
+        font-size:90%;
+        color:#232323; 
+    }
+    .post .date{
+        color:#c6ff00;
+        font-size: 90%;
+    }
+
+.read, .read:hover, .read:focus, .read:active {
+    text-decoration: none;
+    border: none;
+    background: none;
+}
+ .read:hover, .read:focus, .read:active {
+     text-shadow: 0 0 .1em #c6ff00;
+     color:white;
+ }

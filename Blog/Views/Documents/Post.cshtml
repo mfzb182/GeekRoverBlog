@@ -1,0 +1,16 @@
+﻿@model Blog.Models.Post
+
+@if (Request.IsAjaxRequest())
+{
+    @Html.Raw(Model.Body)
+}
+else{
+    ViewBag.Title = Model.Title;
+    <h1 class="title">@Model.Title</h1>
+    <a href="~/Documents/Group/@Model.Group_Id"><h2 class="group">@Model.Group_Name</h2></a>
+    <a href="~/Documents/Author/@Model.Admin_Username"><h3 class="author">@Model.Admin_Username</h3></a>
+    <span class="date">@Model.Date</span>
+    <div class="body">
+        @Html.Raw(Model.Body)
+    </div>
+}

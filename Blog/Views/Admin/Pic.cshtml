@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <label for="Name">Choose your image</label>
+    <input type="file" name="parvandeh" />
+
+    <input type="submit" value="Upload" />
+</form>

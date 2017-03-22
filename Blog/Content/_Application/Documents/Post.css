@@ -1,0 +1,15 @@
+﻿.body{
+    color:black;
+    background-color:rgba(255, 255, 255, 0.7);
+   padding: 1em;
+}
+.body img{
+    max-width:100%;
+}
+.group, .title, .date, .author{
+    text-align:center;
+    margin:0 auto 0 auto;
+    display:block;
+    color:white;
+    text-shadow: 0 0 .1em rgba(255, 255, 255, 0.7);
+}

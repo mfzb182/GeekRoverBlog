@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Blog.Models.Image>
+
+@{
+    ViewBag.Title = "Images";
+}
+@Html.ActionLink("Create", "Create", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Alt)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alt)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,15 @@
+﻿body {
+    background-image:none;
+    background-color:red;
+}
+h2{
+            text-align:center;
+    display:block;
+    font-size:xx-large;
+}
+.Content a{
+        text-align:center;
+    display:block;
+    margin:0 auto 0 auto;
+    width:10em; 
+}

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Blog" Class="DcDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=HP-PROBOOK;Initial Catalog=Blog;User ID=iis" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BlogConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Menu" Member="Menus">
+    <Type Name="Menu">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[File]" Member="Files">
+    <Type Name="File">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Admin_Username" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Group]" Member="Groups">
+    <Type Name="Group">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Abstract" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="Body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Group_Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Admin_Username" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Group_Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Alt" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Admin_Username" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Fullname" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ProfilePic" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Admin_Delete" Method="Admin_Delete">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Admin_Insert" Method="Admin_Insert">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="fullname" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(600)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Admin_Login" Method="Admin_Login">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Admin_LoginResult">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.File_Delete" Method="File_Delete">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.File_Insert" Method="File_Insert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Content" Parameter="content" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Admin_Username" Parameter="admin_Username" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.File_Update" Method="File_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Content" Parameter="content" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Post_Delete" Method="Post_Delete">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Post_Insert" Method="Post_Insert">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Abstract" Parameter="abstract" Type="System.String" DbType="NVarChar(3000)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Group_Id" Parameter="group_Id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="Admin_Username" Parameter="admin_Username" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Post_Update" Method="Post_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(300)" />
+    <Parameter Name="Abstract" Parameter="abstract" Type="System.String" DbType="NVarChar(3000)" />
+    <Parameter Name="Body" Parameter="body" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Group_Id" Parameter="group_Id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Group_Delete" Method="Group_Delete">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Group_Insert" Method="Group_Insert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Group_Update" Method="Group_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Image_Delete" Method="Image_Delete">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Image_Insert" Method="Image_Insert">
+    <Parameter Name="Alt" Parameter="alt" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Url" Parameter="url" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Admin_Username" Parameter="admin_Username" Type="System.String" DbType="NVarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Image_Update" Method="Image_Update">
+    <Parameter Name="Id" Parameter="id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="Alt" Parameter="alt" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Url" Parameter="url" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Admin_UpdatePassword" Method="Admin_UpdatePassword">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="Prev" Parameter="prev" Type="System.String" DbType="NVarChar(600)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(600)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Admin_UpdatePic" Method="Admin_UpdatePic">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="ProfilePic" Parameter="profilePic" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

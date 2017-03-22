@@ -1,0 +1,69 @@
+﻿@helper Menu()
+{
+List<Blog.Models.Menu> itms = new List<Blog.Models.Menu>();
+itms = Blog.App_Code.HelpersClass.Menu();
+
+    foreach (var item in itms)
+    {
+        <a href="~/Documents/Group/@item.Id">@item.Name</a>
+    }
+}
+@helper Admins()
+{ 
+List<Blog.Models.Admin> admins = new List<Blog.Models.Admin>();
+admins = Blog.App_Code.HelpersClass.Admins();
+<div class="Authors">
+    @foreach (var item in admins)
+    {
+    <a href="~/Documents/Author/@item.Username" title="@item.Fullname">
+            <img src="~/Documents/ProfilePic/@item.Username" title="@item.Username" alt="@item.Fullname" />
+    </a>
+    }
+</div>
+}
+@helper Slider(int PostId = 0, int ProductId = 0)
+{
+
+List<Blog.Models.Image> imgs = new List<Blog.Models.Image>();
+imgs = Blog.App_Code.HelpersClass.Slider();
+
+    <ul class="rslides_tabs">
+        @foreach (var item in imgs)
+        {
+            <li><a href="#"><img src="@item.Url"></a></li>
+        }
+    </ul>
+    <ul class="rslides">
+        @foreach (var item in imgs)
+        {
+            <li><img src="@item.Url" alt="@item.Alt"></li>
+        }
+    </ul>
+}
+@helper Groups(string Name)
+{
+    <select name="@Name">
+        @foreach (var item in Blog.App_Code.HelpersClass.Groups())
+        {
+            <option value="@item.ValueMember">@item.DisplayMember</option>
+        }
+    </select>
+}
+@helper Post(Guid? Group_Id = null, string Username = null)
+{
+    <div class="posts">
+        <span>Blog Posts</span>
+        @foreach (var item in Blog.App_Code.HelpersClass.Posts(Group_Id, Username))
+        {
+            <div class="post">
+                <a class="read" data-ajax="true" data-ajax-complete="JsDynamic()" data-ajax-mode="replace" data-ajax-update="#Dynamic" href="~/Documents/Post/@item.Id">
+                    <h2 class="title">@item.Title</h2>
+                </a>
+                <h3 class="date">@item.Date</h3>
+                <div class="abstract">
+                    @item.Abstract
+                </div>
+            </div>
+        }
+    </div>
+}

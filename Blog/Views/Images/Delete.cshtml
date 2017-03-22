@@ -1,0 +1,9 @@
+﻿@model Blog.Models.Image
+@{ 
+    ViewBag.Title = "Delete";
+}
+@Html.ActionLink("Back", "Index")
+<form method="post">
+    <input value="@Model.Alt" readonly />
+    <input type="submit" value="Delete" />
+</form>
